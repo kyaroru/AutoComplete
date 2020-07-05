@@ -20,8 +20,10 @@ const reducer = persistCombineReducers(config, reducers);
 
 /* global __DEV__ */
 if (__DEV__) {
+  const excludedActions = ['@@redux-form/CHANGE'];
   const logger = createLogger({
     collapsed: true,
+    predicate: (getState, action) => excludedActions.indexOf(action.type) < 0,
   });
   middlewares = applyMiddleware(sagaMiddleware, logger);
 } else {

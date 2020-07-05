@@ -6,7 +6,7 @@ const getDefaultState = () => ({
   error: null,
 });
 
-function info(state, action) {
+function autocomplete(state, action) {
   if (typeof state === 'undefined') {
     return getDefaultState();
   }
@@ -35,4 +35,4 @@ function info(state, action) {
   }
 }
 
-export default info;
+export default autocomplete;

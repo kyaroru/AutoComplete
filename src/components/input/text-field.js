@@ -14,8 +14,12 @@ class TextField extends Component {
   handleBlur = () => {
     const {
       input: {onBlur},
+      onBlurCallback,
     } = this.props;
     onBlur();
+    if (onBlurCallback) {
+      onBlurCallback();
+    }
   };
 
   render() {
@@ -37,7 +41,7 @@ class TextField extends Component {
           underlineColorAndroid="transparent"
           value={value}
           onChangeText={(text) => onChange(text)}
-          blurOnSubmit
+          placeholderTextColor={Colors.divider}
           {...otherProps}
         />
       </View>

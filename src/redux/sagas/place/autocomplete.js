@@ -8,6 +8,8 @@ function* fetchAutocomplete({data}) {
     const newData = {
       ...data,
       key: Config.API_KEY,
+      language: 'en',
+      components: 'country:my',
     };
     const response = yield call(api.getAutocomplete, newData);
     const json = response && response.data;
